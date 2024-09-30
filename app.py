@@ -194,7 +194,7 @@ class TabiZoo:
                         self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ You\'ve Got {mining_coins} From Mining ]{Style.RESET_ALL}")
                         info_mining = await self.info_mining(query=query)
                         if info_mining is not None:
-                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining["next_claim_time"].replace('Z', '+00:00')).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
+                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining['next_claim_time'].replace('Z', '+00:00')).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
         except RequestException as e:
             return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ An HTTP Error Occurred While Claim Mining: {str(e)} ]{Style.RESET_ALL}")
         except (Exception, JSONDecodeError) as e:
