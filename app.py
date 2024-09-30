@@ -194,7 +194,7 @@ class TabiZoo:
                         self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ You\'ve Got {mining_coins} From Mining ]{Style.RESET_ALL}")
                         info_mining = await self.info_mining(query=query)
                         if info_mining is not None:
-                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining["next_claim_time"].replace("Z", "+00:00")).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
+                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining["next_claim_time"].replace('Z', '+00:00')).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
         except RequestException as e:
             return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ An HTTP Error Occurred While Claim Mining: {str(e)} ]{Style.RESET_ALL}")
         except (Exception, JSONDecodeError) as e:
@@ -423,11 +423,11 @@ class TabiZoo:
                         )
                     info_mining = await self.info_mining(query=query)
                     if info_mining is not None:
-                        if info_mining['current'] == info_mining['top_limit'] or datetime.now().astimezone().timestamp() >= datetime.fromisoformat(info_mining["next_claim_time"].replace("Z", "+00:00")).astimezone().timestamp():
+                        if info_mining['current'] == info_mining['top_limit'] or datetime.now().astimezone().timestamp() >= datetime.fromisoformat(info_mining["next_claim_time"].replace('Z', '+00:00')).astimezone().timestamp():
                             await self.claim_mining(query=query, mining_coins=info_mining['current'])
                         else:
-                            restart_times.append(datetime.fromisoformat(info_mining["next_claim_time"].replace("Z", "+00:00")).astimezone().timestamp())
-                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining["next_claim_time"].replace("Z", "+00:00")).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
+                            restart_times.append(datetime.fromisoformat(info_mining["next_claim_time"].replace('Z', '+00:00')).astimezone().timestamp())
+                            self.print_timestamp(f"{Fore.YELLOW + Style.BRIGHT}[ Mining Can Be Claim At {datetime.fromisoformat(info_mining["next_claim_time"].replace('Z', '+00:00')).astimezone().strftime('%x %X %Z')} ]{Style.RESET_ALL}")
 
                 for (query, username) in accounts:
                     self.print_timestamp(
