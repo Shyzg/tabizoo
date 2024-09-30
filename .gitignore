@@ -1,0 +1,7 @@
+__pycache__
+.vscode
+development
+venv
+.DS_Store
+*.session
+!removethis.example.session
