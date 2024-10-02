@@ -23,7 +23,7 @@ class TabiZoo:
     def __init__(self) -> None:
         with open('config.json', 'r') as config_file:
             config = json.load(config_file)
-        self.api_id = config['api_id']
+        self.api_id = int(config['api_id'])
         self.api_hash = config['api_hash']
         self.faker = Faker()
         self.headers = {
