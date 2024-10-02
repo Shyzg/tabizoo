@@ -4,4 +4,6 @@ development
 venv
 .DS_Store
 *.session
+*.json
+!config.json
 !removethis.example.session
