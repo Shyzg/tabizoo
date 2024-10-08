@@ -408,6 +408,7 @@ class TabiZoo:
                     )
                     await self.sign_in_user(query=query)
                     await self.onboarding_task(query=query)
+                    await self.check_in_user(query=query)
                     profile = await self.profile_user(query=query)
                     if profile is not None:
                         self.print_timestamp(
